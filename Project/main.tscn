@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxk3ls35is7bi"]
+
+[ext_resource type="Texture2D" uid="uid://cy3ehmtpl3dfu" path="res://Graphics/playerShip1_blue.png" id="1_qnfd8"]
+[ext_resource type="Script" path="res://Player.gd" id="2_y2uwn"]
+
+[node name="Main" type="Node"]
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(635, 380)
+texture = ExtResource("1_qnfd8")
+script = ExtResource("2_y2uwn")

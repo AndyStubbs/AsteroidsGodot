@@ -11,8 +11,6 @@ func _on_main_score_changed( score ):
 
 
 func _on_main_level_changed( level ):
-	print( "Level Changed" )
-	print( level )
 	level_label.text = "Level: %d" % level
 
 
@@ -25,9 +23,8 @@ func _on_main_game_over():
 
 
 func _on_restart_button_pressed():
-	get_parent().start_new_game()
+	get_parent().restart_game()
 	game_over_panel.hide()
-
 
 
 func _on_exit_button_pressed():

@@ -27,6 +27,7 @@ var lives:
 		LIVES_CHANGED.emit( lives )
 
 var num_asteroids = 3
+var asteroid_count = 0
 var player_scene = preload( "res://Scenes/player.tscn" )
 var asteroid_big_scene = preload( "res://Scenes/asteroid_big.tscn" )
 var player_node : Node2D = null
@@ -60,7 +61,8 @@ func restart_game():
 
 
 func clean_up_game():
-	pass
+	for asteroid in asteroid_container.get_children():
+		asteroid.queue_free()
 
 
 func start_new_game():
@@ -72,7 +74,6 @@ func start_new_game():
 
 
 func setup_new_level( asteroids_count ):
-	print( level )
 	level += 1
 	
 	for i in asteroids_count:
@@ -87,6 +88,7 @@ func spawn_player():
 
 
 func spawn_asteroid( asteroid ):
+	asteroid_count += 1
 	if !asteroid:
 		asteroid = asteroid_big_scene.instantiate()
 		asteroid.position.x = randf_range( 0, viewport_size.x )
@@ -97,7 +99,11 @@ func spawn_asteroid( asteroid ):
 
 
 func _asteroid_was_shot():
+	asteroid_count -= 1
 	add_to_score( 3 )
+	if asteroid_count == 0:
+		num_asteroids += 1
+		setup_new_level( num_asteroids )
 
 func add_to_score( n ):
 	score += n

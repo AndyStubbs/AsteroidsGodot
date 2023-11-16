@@ -27,8 +27,8 @@ var lives:
 		LIVES_CHANGED.emit( lives )
 
 var num_asteroids = 3
-var player_scene = preload("res://player.tscn")
-var asteroid_big_scene = preload("res://asteroid_big.tscn")
+var player_scene = preload( "res://Scenes/player.tscn" )
+var asteroid_big_scene = preload( "res://Scenes/asteroid_big.tscn" )
 var player_node : Node2D = null
 
 @onready var viewport_size = get_viewport().size

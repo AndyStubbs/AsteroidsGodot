@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://dxk3ls35is7bi"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_wexen"]
-[ext_resource type="PackedScene" uid="uid://d0umd62r405o0" path="res://main_ui.tscn" id="2_61r10"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_1kbj8"]
+[ext_resource type="PackedScene" uid="uid://d0umd62r405o0" path="res://Scenes/main_ui.tscn" id="2_61r10"]
 
 [node name="Main" type="Node" node_paths=PackedStringArray("asteroid_container")]
-script = ExtResource("1_wexen")
+script = ExtResource("1_1kbj8")
 asteroid_container = NodePath("Asteroid Container")
 
 [node name="MainUI" parent="." instance=ExtResource("2_61r10")]

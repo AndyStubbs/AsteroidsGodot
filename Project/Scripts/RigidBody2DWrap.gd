@@ -1,7 +1,5 @@
 extends RigidBody2D
 
-class_name RigidBody2DWrap
-
 @onready var viewport_size = get_viewport().size
 @onready var sprite_size = $Sprite2D.texture.get_size()
 

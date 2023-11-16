@@ -1,19 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://3o2g2i7dnw5y"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_1o35f"]
-[ext_resource type="Texture2D" uid="uid://cy3ehmtpl3dfu" path="res://Graphics/playerShip1_blue.png" id="2_nxb6g"]
-[ext_resource type="Texture2D" uid="uid://k6vul24df1yo" path="res://Graphics/gun00.png" id="3_b46si"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_p0j0v"]
+[ext_resource type="Texture2D" uid="uid://cy3ehmtpl3dfu" path="res://Graphics/playerShip1_blue.png" id="2_3mor7"]
+[ext_resource type="Texture2D" uid="uid://k6vul24df1yo" path="res://Graphics/gun00.png" id="3_e6v5f"]
 
 [node name="Player" type="RigidBody2D"]
 collision_layer = 2
 max_contacts_reported = 20
 contact_monitor = true
-script = ExtResource("1_1o35f")
+script = ExtResource("1_p0j0v")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
-texture = ExtResource("2_nxb6g")
+texture = ExtResource("2_3mor7")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 scale = Vector2(0.75, 0.75)
@@ -23,7 +23,7 @@ polygon = PackedVector2Array(-8, -38, 8, -37, 12, -10, 37, 3, 42, 0, 45, -5, 49,
 position = Vector2(-18, -4)
 rotation = 3.14159
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_b46si")
+texture = ExtResource("3_e6v5f")
 
 [node name="BulletSpawn1" type="Node2D" parent="Gun"]
 position = Vector2(3.8147e-06, 18)
@@ -32,7 +32,7 @@ position = Vector2(3.8147e-06, 18)
 position = Vector2(18, -4)
 rotation = 3.14159
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_b46si")
+texture = ExtResource("3_e6v5f")
 
 [node name="BulletSpawn2" type="Node2D" parent="Gun2"]
 position = Vector2(0, 18)

@@ -1,5 +1,3 @@
-class_name Util
-
 static func RandomUnitVector2():
 	var v = Vector2()
 	v.x = randf_range(-1.0, 1.0)

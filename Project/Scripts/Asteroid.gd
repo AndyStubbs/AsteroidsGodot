@@ -1,9 +1,9 @@
-extends RigidBody2DWrap
+extends "res://Scripts/RigidBody2DWrap.gd"
 
 signal was_shot
 
 const STARTING_FORCE = 100
-
+const Util := preload( "res://Scripts/Util.gd" )
 @export var debris_scene : PackedScene
 @export var debris_amount = 3
 

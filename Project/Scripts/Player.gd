@@ -1,4 +1,4 @@
-extends RigidBody2DWrap
+extends "res://Scripts/RigidBody2DWrap.gd"
 
 signal has_died
 
@@ -9,7 +9,7 @@ var fire_cooldown_remaining = 0
 var shields_duration = 2.0
 var shields_remaining = shields_duration
 
-const bullet_scene = preload( "res://bullet.tscn" )
+const bullet_scene = preload( "res://Scenes/bullet.tscn" )
 
 @onready var sprite = $Sprite2D
 

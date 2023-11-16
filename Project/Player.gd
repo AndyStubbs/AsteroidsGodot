@@ -6,7 +6,12 @@ var rotation_speed = TAU
 var thrust_force = 400
 var fire_cooldown = 0.25
 var fire_cooldown_remaining = 0
+var shields_duration = 2.0
+var shields_remaining = shields_duration
+
 const bullet_scene = preload( "res://bullet.tscn" )
+
+@onready var sprite = $Sprite2D
 
 func _ready():
 	pass
@@ -14,6 +19,13 @@ func _ready():
 
 func _physics_process(delta):
 	angular_velocity = 0
+
+	if shields_remaining > 0:
+		shields_remaining -= delta
+		if shields_remaining > 0:
+			show_shields()
+		else:
+			hide_shields()
 
 	# Rotate Colckwise
 	if Input.is_action_pressed( "rotate_cw" ):
@@ -33,6 +45,12 @@ func _physics_process(delta):
 		fire_cooldown_remaining = fire_cooldown
 		shoot_bullet()
 
+func show_shields():
+	modulate.a = sin( shields_remaining * 50.0 ) / 4.0 + 0.5
+
+func hide_shields():
+	modulate.a = 1
+
 func shoot_bullet():
 
 	# Create an array of bullet spawn points
@@ -51,5 +69,7 @@ func shoot_bullet():
 		get_parent().add_child(n)
 
 func _on_body_entered( body ):
-	has_died.emit()
+	if shields_remaining <= 0:
+		has_died.emit()
+
 

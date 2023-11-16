@@ -1,8 +1,14 @@
 extends Area2D
 
 const SPEED = 400
+var lifespan = 5.0
 
 func _physics_process( delta ):
+	lifespan -= delta
+	if lifespan <= 0:
+		queue_free()
+		return
+	
 	translate( Vector2.UP.rotated( rotation ) * SPEED * delta )
 
 

@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxk3ls35is7bi"]
+[gd_scene load_steps=3 format=3 uid="uid://dxk3ls35is7bi"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_wexen"]
+[ext_resource type="PackedScene" uid="uid://d0umd62r405o0" path="res://main_ui.tscn" id="2_61r10"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" node_paths=PackedStringArray("asteroid_container")]
 script = ExtResource("1_wexen")
+asteroid_container = NodePath("Asteroid Container")
+
+[node name="MainUI" parent="." instance=ExtResource("2_61r10")]
+z_index = 1
+offset_left = 15.0
+offset_top = 15.0
+offset_right = -25.0
+offset_bottom = -25.0
+
+[node name="Asteroid Container" type="Node" parent="."]
+
+[connection signal="GAME_OVER" from="." to="MainUI" method="_on_main_game_over"]
+[connection signal="LEVEL_CHANGED" from="." to="MainUI" method="_on_main_level_changed"]
+[connection signal="LIVES_CHANGED" from="." to="MainUI" method="_on_main_lives_changed"]
+[connection signal="SCORE_CHANGED" from="." to="MainUI" method="_on_main_score_changed"]

@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bd5e7t0wehb72" path="res://asteroid_small.tscn" id="2_rs2d8"]
 
 [node name="Asteroid-Med" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_xx3kn")
 debris_scene = ExtResource("2_rs2d8")
 metadata/_edit_group_ = true

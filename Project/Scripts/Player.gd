@@ -68,7 +68,7 @@ func shoot_bullet():
 		n.position = bullet_spawn.global_position
 		get_parent().add_child(n)
 
-func _on_body_entered( body ):
+func _on_body_entered( _body ):
 	if shields_remaining <= 0:
 		has_died.emit()
 

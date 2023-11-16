@@ -2,6 +2,7 @@ extends Area2D
 
 const SPEED = 400
 var lifespan = 5.0
+var type = "bullet"
 
 func _physics_process( delta ):
 	lifespan -= delta

@@ -1,3 +1,4 @@
+class_name Asteroid
 extends "res://Scripts/RigidBody2DWrap.gd"
 
 signal was_shot
@@ -23,5 +24,9 @@ func destory_asteroid():
 		for i in debris_amount:
 			var n = debris_scene.instantiate()
 			n.global_position = global_position
-			get_parent().add_child(n)
+			get_parent().get_parent().spawn_asteroid( n )
 	queue_free()
+
+
+func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	print( "Shape Entered" )

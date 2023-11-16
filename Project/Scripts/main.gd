@@ -71,17 +71,12 @@ func start_new_game():
 	spawn_player()
 
 
-func _process(delta):
-	pass
-
-
 func setup_new_level( asteroids_count ):
 	print( level )
 	level += 1
 	
 	for i in asteroids_count:
-		spawn_asteroid()
-	
+		spawn_asteroid( null )
 
 
 func spawn_player():
@@ -91,15 +86,18 @@ func spawn_player():
 	add_child( player_node )
 
 
-func spawn_asteroid():
-	var n = asteroid_big_scene.instantiate()
+func spawn_asteroid( asteroid ):
+	if !asteroid:
+		asteroid = asteroid_big_scene.instantiate()
+		asteroid.position.x = randf_range( 0, viewport_size.x )
+		asteroid.position.y = randf_range( 0, viewport_size.y )
 	
-	n.position.x = randf_range( 0, viewport_size.x )
-	n.position.y = randf_range( 0, viewport_size.y )
-	
-	asteroid_container.add_child( n )
-	pass
+	asteroid.was_shot.connect( _asteroid_was_shot )
+	asteroid_container.add_child( asteroid )
 
+
+func _asteroid_was_shot():
+	add_to_score( 3 )
 
 func add_to_score( n ):
 	score += n

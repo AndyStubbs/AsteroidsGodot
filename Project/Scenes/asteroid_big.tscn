@@ -8,6 +8,8 @@
 collision_layer = 4
 collision_mask = 2
 mass = 1000.0
+max_contacts_reported = 20
+can_sleep = false
 script = ExtResource("1_laeqt")
 debris_scene = ExtResource("2_2h6rx")
 debris_amount = 2

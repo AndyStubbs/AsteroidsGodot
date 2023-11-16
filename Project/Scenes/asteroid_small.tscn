@@ -7,6 +7,8 @@
 collision_layer = 4
 collision_mask = 2
 mass = 100.0
+max_contacts_reported = 20
+contact_monitor = true
 script = ExtResource("1_7li6i")
 debris_amount = 2
 metadata/_edit_group_ = true

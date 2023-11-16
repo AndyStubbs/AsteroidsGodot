@@ -15,10 +15,13 @@ func _ready():
 
 
 func _on_was_shot():
+	call_deferred( "destory_asteroid" )
+
+
+func destory_asteroid():
 	if debris_scene:
 		for i in debris_amount:
 			var n = debris_scene.instantiate()
 			n.global_position = global_position
 			get_parent().add_child(n)
-
 	queue_free()

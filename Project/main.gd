@@ -10,13 +10,11 @@ var player_node = null
 @onready var viewport_size = get_viewport().size
 
 func _on_player_death():
-	spawn_player()
-	pass
+	call_deferred( "spawn_player" )
 
 
 func _ready():
 	setup_new_level(num_asteroids)
-	pass
 
 
 func _process(delta):
@@ -36,7 +34,6 @@ func spawn_player():
 	player_node.position = viewport_size / 2
 	player_node.has_died.connect(_on_player_death)
 	add_child(player_node)
-	pass
 	
 func spawn_asteroid():
 	var n = asteroid_big_scene.instantiate()

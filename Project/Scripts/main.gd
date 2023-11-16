@@ -36,7 +36,9 @@ var player_node : Node2D = null
 @export var asteroid_container : Node
 
 func _on_player_death():
-	player_node.queue_free()
+	if player_node:
+		player_node.queue_free()
+		player_node = null
 	
 	if lives <= 0:
 		game_over()

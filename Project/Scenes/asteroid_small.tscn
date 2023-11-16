@@ -3,18 +3,18 @@
 [ext_resource type="Script" path="res://Scripts/Asteroid.gd" id="1_7li6i"]
 [ext_resource type="Texture2D" uid="uid://ti2fc3jnktx3" path="res://Graphics/meteorBrown_small1.png" id="2_e3dfv"]
 
-[node name="Asteroid-Med" type="RigidBody2D"]
+[node name="Asteroid-Small" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 2
+mass = 100.0
 script = ExtResource("1_7li6i")
-debris_amount = 0
+debris_amount = 2
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_e3dfv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
 polygon = PackedVector2Array(-14, -3, -9, 10, -1, 13, 12, 4, 10, -12, -6, -12)
 
 [connection signal="was_shot" from="." to="." method="_on_was_shot"]

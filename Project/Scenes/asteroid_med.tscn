@@ -7,6 +7,7 @@
 [node name="Asteroid-Med" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 2
+mass = 500.0
 script = ExtResource("1_tf25p")
 debris_scene = ExtResource("2_3tesc")
 metadata/_edit_group_ = true
@@ -16,8 +17,6 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_ibckn")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
-scale = Vector2(1.5, 1.5)
-polygon = PackedVector2Array(-19.3333, -4.66667, -13.3333, 15.3333, 0.666667, 19.3333, 19.3333, 6, 16.6667, -17.3333, -8.66667, -20)
+polygon = PackedVector2Array(-30, -7, -21, 23, 1, 30, 31, 11, 25, -27, -13, -30)
 
 [connection signal="was_shot" from="." to="." method="_on_was_shot"]

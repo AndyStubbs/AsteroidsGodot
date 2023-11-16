@@ -7,6 +7,7 @@
 [node name="Asteroid-Big" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 2
+mass = 1000.0
 script = ExtResource("1_laeqt")
 debris_scene = ExtResource("2_2h6rx")
 debris_amount = 2
@@ -17,8 +18,6 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_kfr3k")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
-scale = Vector2(1.5, 1.5)
-polygon = PackedVector2Array(-33, -40, -49, 10, -22, 40, 11, 28, 33, 32, 49, -2, 23, -41)
+polygon = PackedVector2Array(-49, -61, -75, 14, -32, 62, 16, 43, 50, 47, 74, -2, 34, -61)
 
 [connection signal="was_shot" from="." to="." method="_on_was_shot"]
